@@ -172,14 +172,16 @@ public class SegmentNodeDatabase implements ComponentNode {
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
+		sb.append(StringUtilities.indent(level) + "{\n");
 		for (Map.Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
-			sb.append(StringUtilities.indent(level + 2) + entry.getKey().getName());
+			sb.append(StringUtilities.indent(level + 1) + entry.getKey().getName());
 			sb.append(" :");
 			for(PointNode value : entry.getValue()) {
 				sb.append(" " + value);
 			}
 			sb.append("\n");
 		}
+		sb.append(StringUtilities.indent(level) + "}\n");
 	}
 
 }
