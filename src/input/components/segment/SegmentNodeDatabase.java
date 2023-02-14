@@ -3,6 +3,7 @@ package input.components.segment;
 import input.components.ComponentNode;
 import input.components.point.PointNode;
 import input.components.point.PointNodeDatabase;
+import utilities.io.StringUtilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -171,8 +172,14 @@ public class SegmentNodeDatabase implements ComponentNode {
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO Auto-generated method stub
-
+		for (Map.Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
+			sb.append(StringUtilities.indent(level + 2) + entry.getKey().getName());
+			sb.append(" :");
+			for(PointNode value : entry.getValue()) {
+				sb.append(" " + value);
+			}
+			sb.append("\n");
+		}
 	}
 
 }
