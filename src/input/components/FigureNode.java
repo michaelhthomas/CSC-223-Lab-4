@@ -40,7 +40,7 @@ public class FigureNode implements ComponentNode {
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO
+		
 	}
 
 	public static FigureNode fromJson(Object json) {
