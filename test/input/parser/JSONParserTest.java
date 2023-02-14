@@ -9,7 +9,7 @@ import input.components.FigureNode;
 import input.exception.ParseException;
 
 /**
- *TODO: WRITE THE DESCRIPTION
+ * TODO: WRITE THE DESCRIPTION
  * 
  * @author Michael Leiby
  * 
@@ -26,7 +26,7 @@ class JSONParserTest {
 	}
 
 	@Test
-	void empty_json_string_test() {
+	void emptyJsonStringTest() {
 		JSONParser parser = new JSONParser();
 
 		assertThrows(ParseException.class, () -> {
@@ -35,14 +35,14 @@ class JSONParserTest {
 	}
 
 	@Test
-	void single_triangle_test() {
+	void singleTriangleTest() {
 		//
 		// The input String ("single_triangle.json") assumes the file is
 		// located at the top-level of the project. If you move your input
 		// files into a folder, update this String with the path:
 		// e.g., "my_folder/single_triangle.json"
 		//
-		ComponentNode node = JSONParserTest.runFigureParseTest("single_triangle.json");
+		ComponentNode node = JSONParserTest.runFigureParseTest("testFiles/single_triangle.json");
 
 		assertTrue(node instanceof FigureNode);
 
