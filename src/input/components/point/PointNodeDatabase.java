@@ -14,8 +14,8 @@ import input.components.ComponentNode;
  * A database of 2D points
  *
  * @author Michael Thomas
- * @author Jake Shore
- * @date 1/26/2022
+ * @author Julia Hogg	
+ * @date 	2/14/2023
  */
 public class PointNodeDatabase implements ComponentNode {
 

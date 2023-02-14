@@ -19,8 +19,8 @@ import java.util.Set;
  * A database of undirected and directed edges stored as adjacency lists.
  *
  * @author Michael Thomas
- * @author Jake Shore
- * @date 1/26/2022
+ * @author Julia Hogg
+ * @date 2/14/2023
  */
 public class SegmentNodeDatabase {
 
