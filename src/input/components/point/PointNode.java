@@ -9,7 +9,8 @@ import utilities.math.MathUtilities;
  * @author Michael Thomas
  * @author Jake Shore
  * @author Michael Leiby
- * @date 1/26/2022
+ * @author Julia Hogg
+ * @date 2/14/2023
  */
 public class PointNode implements ComponentNode {
 	protected static final String ANONYMOUS = "__UNNAMED";
