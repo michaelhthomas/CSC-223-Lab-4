@@ -2,7 +2,6 @@ package input.parser;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import input.components.ComponentNode;
