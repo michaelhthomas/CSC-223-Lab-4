@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import input.components.point.PointNodeDatabase;
 import input.components.segment.SegmentNodeDatabase;
+import utilities.io.StringUtilities;
 
 /**
  * A basic figure consists of points, segments, and an optional description
@@ -40,7 +41,14 @@ public class FigureNode implements ComponentNode {
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO
+		sb.append(StringUtilities.indent(level) + "Figure\n");
+		sb.append(StringUtilities.indent(level) + "{\n");
+		sb.append(StringUtilities.indent(level + 1) + "Description: \"" + _description + "\"\n");
+		sb.append(StringUtilities.indent(level + 1) + "Points:\n");
+		_points.unparse(sb, level + 1);
+		sb.append(StringUtilities.indent(level + 1) + "Segments:\n");
+		_segments.unparse(sb, level + 1);
+		sb.append(StringUtilities.indent(level) + "}\n");
 	}
 
 	public static FigureNode fromJson(Object json) {
