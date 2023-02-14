@@ -5,6 +5,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import input.components.ComponentNode;
+
 /**
  * A database of 2D points
  *
@@ -12,7 +17,7 @@ import java.util.Set;
  * @author Jake Shore
  * @date 1/26/2022
  */
-public class PointNodeDatabase {
+public class PointNodeDatabase implements ComponentNode {
 
 	Set<PointNode> _points;
 
@@ -89,6 +94,21 @@ public class PointNodeDatabase {
 	}
 
 	/**
+	 * Gets the point in the database with the given name.
+	 * 
+	 * @param name Name to locate.
+	 * @return the point whose name is equal to the given name if such a point
+	 *         exists, else null.
+	 */
+	public PointNode getPoint(String name) {
+		for (PointNode p : _points) {
+			if (p.getName().equals(name))
+				return p;
+		}
+		return null;
+	}
+
+	/**
 	 * Gets the point in the database with the same coordinates as the given point.
 	 * 
 	 * @param point Point to locate.
@@ -113,6 +133,28 @@ public class PointNodeDatabase {
 	 */
 	public PointNode getPoint(double x, double y) {
 		return getPoint(new PointNode(x, y));
+	}
+
+	@Override
+	public void unparse(StringBuilder sb, int level) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static PointNodeDatabase fromJson(Object json) {
+		JSONArray JSONpoints = (JSONArray) json;
+		PointNodeDatabase points = new PointNodeDatabase();
+
+		for (Object pointObj : JSONpoints) {
+			JSONObject JSONpoint = (JSONObject) pointObj;
+			PointNode point = new PointNode(
+					JSONpoint.getString("name"),
+					JSONpoint.getDouble("x"),
+					JSONpoint.getDouble("y"));
+			points.put(point);
+		}
+
+		return points;
 	}
 
 }

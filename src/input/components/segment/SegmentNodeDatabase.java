@@ -1,6 +1,7 @@
 package input.components.segment;
 
 import input.components.point.PointNode;
+import input.components.point.PointNodeDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +9,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.Set;
 
 /**
@@ -136,6 +141,28 @@ public class SegmentNodeDatabase {
 				}
 			}
 		}
+		return segments;
+	}
+
+	public static SegmentNodeDatabase fromJson(Object json, PointNodeDatabase points) {
+		JSONArray JSONsegments = (JSONArray) json;
+		SegmentNodeDatabase segments = new SegmentNodeDatabase();
+
+		for (Object segmentObj : JSONsegments) {
+			JSONObject JSONsegment = (JSONObject) segmentObj;
+			String rootPointName = JSONsegment.names().getString(0);
+			PointNode rootPoint = points.getPoint(rootPointName);
+			JSONArray adjacentPointNames = JSONsegment.getJSONArray(rootPointName);
+			List<PointNode> adjacentPoints = new ArrayList<>();
+
+			for (Object pointNameObj : adjacentPointNames) {
+				String pointName = (String) pointNameObj;
+				adjacentPoints.add(points.getPoint(pointName));
+			}
+
+			segments.addAdjacencyList(rootPoint, adjacentPoints);
+		}
+
 		return segments;
 	}
 

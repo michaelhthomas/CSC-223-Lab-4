@@ -1,8 +1,8 @@
 package input.components;
 
-import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import input.components.point.PointNode;
 import input.components.point.PointNodeDatabase;
 import input.components.segment.SegmentNodeDatabase;
 
@@ -38,5 +38,16 @@ public class FigureNode implements ComponentNode {
 	@Override
 	public void unparse(StringBuilder sb, int level) {
 		// TODO
+	}
+
+	public static FigureNode fromJson(Object json) {
+		JSONObject JSONfigure = (JSONObject) json;
+		String description = JSONfigure.getString("Description");
+		JSONArray JSONpoints = JSONfigure.getJSONArray("Points");
+		JSONArray JSONsegments = JSONfigure.getJSONArray("Segments");
+		PointNodeDatabase points = PointNodeDatabase.fromJson(JSONpoints);
+		SegmentNodeDatabase segments = SegmentNodeDatabase.fromJson(JSONsegments, points);
+
+		return new FigureNode(description, points, segments);
 	}
 }
