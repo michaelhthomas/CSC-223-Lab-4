@@ -8,16 +8,14 @@ import org.junit.jupiter.api.Test;
 
 public class PointNodeDatabaseTest {
   private List<PointNode> _pointList = List.of(
-    new PointNode(0, 0),
-    new PointNode(1, 1),
-    new PointNode(0, 1)
-  );
+      new PointNode(0, 0),
+      new PointNode(1, 1),
+      new PointNode(0, 1));
 
   private List<PointNode> _pointListNamed = List.of(
-    new PointNode("A", 0, 0),
-    new PointNode("B", 1, 1),
-    new PointNode("C", 0, 1)
-  );
+      new PointNode("A", 0, 0),
+      new PointNode("B", 1, 1),
+      new PointNode("C", 0, 1));
 
   @Test
   void pointNodeDatabaseTest() {
@@ -62,7 +60,8 @@ public class PointNodeDatabaseTest {
 
     // make sure all points are present
     for (PointNode p : _pointList) {
-      assertTrue(pointDatabase.contains(p.getX(), p.getY()), "point database did not contain " + p + " but was expected to.");
+      assertTrue(pointDatabase.contains(p.getX(), p.getY()),
+          "point database did not contain " + p + " but was expected to.");
     }
   }
 

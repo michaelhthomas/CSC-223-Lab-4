@@ -12,26 +12,31 @@ import input.components.segment.SegmentNodeDatabase;
  * Each figure has distinct points and segments (thus unique database objects).
  * 
  */
-public class FigureNode implements ComponentNode
-{
-	protected String              _description;
-	protected PointNodeDatabase   _points;
+public class FigureNode implements ComponentNode {
+	protected String _description;
+	protected PointNodeDatabase _points;
 	protected SegmentNodeDatabase _segments;
 
-	public String              getDescription()    { return _description; }
-	public PointNodeDatabase   getPointsDatabase() { return _points; }
-	public SegmentNodeDatabase getSegments()       { return _segments; }
-	
-	public FigureNode(String description, PointNodeDatabase points, SegmentNodeDatabase segments)
-	{
+	public String getDescription() {
+		return _description;
+	}
+
+	public PointNodeDatabase getPointsDatabase() {
+		return _points;
+	}
+
+	public SegmentNodeDatabase getSegments() {
+		return _segments;
+	}
+
+	public FigureNode(String description, PointNodeDatabase points, SegmentNodeDatabase segments) {
 		_description = description;
 		_points = points;
 		_segments = segments;
 	}
 
 	@Override
-	public void unparse(StringBuilder sb, int level)
-	{
-        // TODO
-    }
+	public void unparse(StringBuilder sb, int level) {
+		// TODO
+	}
 }

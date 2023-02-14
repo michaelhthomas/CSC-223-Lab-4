@@ -13,8 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import input.components.point.PointNode;
 
-class SegmentNodeDatabaseTest
-{
+class SegmentNodeDatabaseTest {
 	public SegmentNodeDatabase build() {
 		//      A                                 
 		//     / \                                

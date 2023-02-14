@@ -20,7 +20,7 @@ import java.util.Set;
 public class SegmentNodeDatabase {
 
 	Map<PointNode, Set<PointNode>> _adjLists;
-	
+
 	/**
 	 * Constructs a new empty PointSegmentDatabase.
 	 */
@@ -30,54 +30,57 @@ public class SegmentNodeDatabase {
 
 	/**
 	 * Constructs a new PointSegmentDatabase, using a new map of adjacency lists.
+	 * 
 	 * @param adjLists Map of adjacency lists
 	 */
 	public SegmentNodeDatabase(Map<PointNode, Set<PointNode>> adjLists) {
 		_adjLists = new HashMap<PointNode, Set<PointNode>>(adjLists);
 	}
-	
+
 	/**
 	 * Calculates the number of undirected edges in the SegmentNodeDatabase.
+	 * 
 	 * @return number of undirected edges
 	 */
 	public int numUndirectedEdges() {
 		int numOfUndirectedEdges = 0;
 		Set<SegmentNode> segments = new LinkedHashSet<SegmentNode>();
-		
+
 		// counts the number of unique edges
-		for(Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
-			for(PointNode point : entry.getValue()) {
+		for (Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
+			for (PointNode point : entry.getValue()) {
 				SegmentNode segment = new SegmentNode(entry.getKey(), point);
 				boolean added = segments.add(segment);
-				if(!added) {
+				if (!added) {
 					numOfUndirectedEdges++;
 				}
 			}
 		}
 		return numOfUndirectedEdges;
 	}
-	
+
 	/**
 	 * Adds a directed edge to the SegmentNodeDatabase.
+	 * 
 	 * @param point1
 	 * @param point2
 	 */
 	private void addDirectedEdge(PointNode point1, PointNode point2) {
 		Set<PointNode> connectedPoints = _adjLists.get(point1);
-		if(connectedPoints == null) {
+		if (connectedPoints == null) {
 			// creates adjacency list with one edge and adds to adjacency lists
 			LinkedHashSet<PointNode> newPoint = new LinkedHashSet<PointNode>();
 			newPoint.add(point2);
 			_adjLists.put(point1, newPoint);
-		}
-		else {
+		} else {
 			// adds to pre-existing adjacency list
 			connectedPoints.add(point2);
 		}
 	}
-	
+
 	/**
 	 * Adds an undirected edge to the SegmentNodeDatabase.
+	 * 
 	 * @param point1
 	 * @param point2
 	 */
@@ -85,52 +88,55 @@ public class SegmentNodeDatabase {
 		addDirectedEdge(point1, point2);
 		addDirectedEdge(point2, point1);
 	}
-	
+
 	/**
 	 * Adds a new adjacency list to the SegmentNodeDatabase.
+	 * 
 	 * @param point
 	 * @param adjPoints
 	 */
 	public void addAdjacencyList(PointNode point, List<PointNode> adjPoints) {
-		for(PointNode connectedPoint : adjPoints) {
+		for (PointNode connectedPoint : adjPoints) {
 			addUndirectedEdge(point, connectedPoint);
 		}
 	}
-	
+
 	/**
 	 * returns a list of segmentNodes for each directed edge in the adjacency list.
+	 * 
 	 * @return List of SegmentNodes
 	 */
 	public List<SegmentNode> asSegmentList() {
 		List<SegmentNode> segments = new ArrayList<SegmentNode>();
-		
+
 		// adds undirected edge to list of segment nodes
-		for(Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
-			for(PointNode point : entry.getValue()) {
+		for (Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
+			for (PointNode point : entry.getValue()) {
 				segments.add(new SegmentNode(entry.getKey(), point));
 			}
 		}
 		return segments;
 	}
-	
+
 	/**
 	 * returns a list of segmentNodes from the SegmentNodeDatabase only
 	 * counting each undirected edge once.
+	 * 
 	 * @return List of unique SegmentNodes
 	 */
 	public List<SegmentNode> asUniqueSegmentList() {
-		
+
 		List<SegmentNode> segments = new ArrayList<SegmentNode>();
 		// adds undirected edges to list of segment nodes if not already in it
-		for(Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
-			for(PointNode point : entry.getValue()) {
+		for (Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
+			for (PointNode point : entry.getValue()) {
 				SegmentNode segment = new SegmentNode(entry.getKey(), point);
-				if(!segments.contains(segment)) {
+				if (!segments.contains(segment)) {
 					segments.add(segment);
 				}
 			}
 		}
 		return segments;
 	}
-	
+
 }

@@ -1,5 +1,6 @@
 package input.components.point;
 
+import input.components.ComponentNode;
 import utilities.math.MathUtilities;
 
 /**
@@ -9,21 +10,30 @@ import utilities.math.MathUtilities;
  * @author Jake Shore
  * @date 1/26/2022
  */
-public class PointNode
-{
+public class PointNode implements ComponentNode {
 	protected static final String ANONYMOUS = "__UNNAMED";
 
 	protected double _x;
-	public double getX() { return this._x; }
 
-	protected double _y; 
-	public double getY() { return this._y; }
+	public double getX() {
+		return this._x;
+	}
 
-	protected String _name; 
-	public String getName() { return _name; }
+	protected double _y;
+
+	public double getY() {
+		return this._y;
+	}
+
+	protected String _name;
+
+	public String getName() {
+		return _name;
+	}
 
 	/**
 	 * Create a new Point with the specified coordinates.
+	 * 
 	 * @param x The X coordinate
 	 * @param y The Y coordinate
 	 */
@@ -33,9 +43,10 @@ public class PointNode
 
 	/**
 	 * Create a new Point with the specified coordinates.
+	 * 
 	 * @param name -- The name of the point. (Assigned by the UI)
-	 * @param x -- The X coordinate
-	 * @param y -- The Y coordinate
+	 * @param x    -- The X coordinate
+	 * @param y    -- The Y coordinate
 	 */
 	public PointNode(String name, double x, double y) {
 		_name = name;
@@ -56,11 +67,10 @@ public class PointNode
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-	
+
 		PointNode other = (PointNode) obj;
-		return 
-			MathUtilities.doubleEquals(_x, other._x) &&
-			MathUtilities.doubleEquals(_y, other._y);
+		return MathUtilities.doubleEquals(_x, other._x) &&
+				MathUtilities.doubleEquals(_y, other._y);
 	}
 
 	@Override
@@ -69,5 +79,11 @@ public class PointNode
 		if (_name != null && !_name.equals(ANONYMOUS))
 			return _name + point;
 		return point;
+	}
+
+	@Override
+	public void unparse(StringBuilder sb, int level) {
+		// TODO Auto-generated method stub
+
 	}
 }

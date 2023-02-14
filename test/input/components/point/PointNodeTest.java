@@ -32,7 +32,7 @@ public class PointNodeTest {
     // exactly the same point
     assertTrue(test1.equals(test1), "points should have been equal, but were not");
     assertTrue(test3.equals(test3), "points should have been equal, but were not");
-    
+
     // same coordinates
     assertTrue(test1.equals(test2), "points should have been equal, but were not");
     assertTrue(test2.equals(test1), "points should have been equal, but were not");
@@ -49,12 +49,11 @@ public class PointNodeTest {
     // equality to null
     assertDoesNotThrow(() -> {
       assertFalse(
-        test.equals(null),
-        "checking equality with null returned true"
-      );
+          test.equals(null),
+          "checking equality with null returned true");
     }, "checking equality with null threw an exception");
   }
-    
+
   @Test
   void pointNodeEqualsNonPointNodeTest() {
     PointNode test = new PointNode(0, 0);
@@ -62,9 +61,8 @@ public class PointNodeTest {
     // equality to incorrect object type
     assertDoesNotThrow(() -> {
       assertFalse(
-        test.equals("test"),
-        "checking equality with non-PointNode object returned true"
-      );
+          test.equals("test"),
+          "checking equality with non-PointNode object returned true");
     }, "checking equality with non-PointNode object threw an exception");
   }
 
@@ -84,10 +82,9 @@ public class PointNodeTest {
     PointNode test2 = new PointNode("B", 1, 2);
 
     assertEquals(
-      test1,
-      test2, 
-      "PointNodes with different names should have been equal, but were not."
-    );
+        test1,
+        test2,
+        "PointNodes with different names should have been equal, but were not.");
   }
 
   @Test
@@ -99,7 +96,7 @@ public class PointNodeTest {
     // exactly the same point
     assertTrue(test1.hashCode() == test1.hashCode(), "point hash codes should have been equal, but were not");
     assertTrue(test3.hashCode() == test3.hashCode(), "point hash codes should have been equal, but were not");
-    
+
     // same coordinates
     assertTrue(test1.hashCode() == test2.hashCode(), "point hash codes should have been equal, but were not");
     assertTrue(test2.hashCode() == test1.hashCode(), "point hash codes should have been equal, but were not");
