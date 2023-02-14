@@ -15,6 +15,7 @@ import input.components.ComponentNode;
  *
  * @author Michael Thomas
  * @author Jake Shore
+ * @author Michael Leiby
  * @date 1/26/2022
  */
 public class PointNodeDatabase implements ComponentNode {

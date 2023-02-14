@@ -11,6 +11,9 @@ import input.components.segment.SegmentNodeDatabase;
  * 
  * Each figure has distinct points and segments (thus unique database objects).
  * 
+ * @author Michael Leiby
+ * 
+ * @date 2/14/2023
  */
 public class FigureNode implements ComponentNode {
 	protected String _description;

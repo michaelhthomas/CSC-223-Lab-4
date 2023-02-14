@@ -9,6 +9,14 @@ import input.components.ComponentNode;
 import input.components.FigureNode;
 import input.exception.ParseException;
 
+/**
+ *TODO: WRITE THE DESCRIPTION
+ * 
+ * @author Michael Leiby
+ * 
+ * @date 2/14/2023
+ */
+
 class JSONParserTest {
 	public static ComponentNode runFigureParseTest(String filename) {
 		JSONParser parser = new JSONParser();

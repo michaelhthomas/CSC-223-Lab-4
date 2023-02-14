@@ -1,6 +1,16 @@
 package input.parser;
 
 import org.json.JSONObject;
+
+
+/**
+ * TODO: WRITE THE DESCRIPTION
+ * 
+ * @author Michael Leiby
+ * 
+ * @date 2/14/2023
+ */
+
 import org.json.JSONTokener;
 
 import input.components.*;
