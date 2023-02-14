@@ -177,7 +177,7 @@ public class SegmentNodeDatabase implements ComponentNode {
 			sb.append(StringUtilities.indent(level + 1) + entry.getKey().getName());
 			sb.append(" :");
 			for(PointNode value : entry.getValue()) {
-				sb.append(" " + value);
+				sb.append(" " + value.getName());
 			}
 			sb.append("\n");
 		}
