@@ -1,6 +1,7 @@
 package input.components.point;
 
 import input.components.ComponentNode;
+import utilities.io.StringUtilities;
 import utilities.math.MathUtilities;
 
 /**
@@ -86,6 +87,6 @@ public class PointNode implements ComponentNode {
 	@Override
 	public void unparse(StringBuilder sb, int level) {
 		// TODO Auto-generated method stub
-
+		sb.append(StringUtilities.indent(level) + "Point(" + _name + ")" + "(" + _x + ", " + _y + ")\n");
 	}
 }

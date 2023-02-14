@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import input.components.ComponentNode;
+import utilities.io.StringUtilities;
 
 /**
  * A database of 2D points
@@ -16,8 +17,8 @@ import input.components.ComponentNode;
  * @author Michael Thomas
  * @author Jake Shore
  * @author Michael Leiby
- * @author Julia Hogg	
- * @date 	2/14/2023
+ * @author Julia Hogg
+ * @date 2/14/2023
  */
 public class PointNodeDatabase implements ComponentNode {
 
@@ -139,8 +140,10 @@ public class PointNodeDatabase implements ComponentNode {
 
 	@Override
 	public void unparse(StringBuilder sb, int level) {
-		// TODO Auto-generated method stub
-
+		sb.append(StringUtilities.indent(level) + "{\n");
+		for (PointNode point : _points)
+			point.unparse(sb, level + 1);
+		sb.append(StringUtilities.indent(level) + "}\n");
 	}
 
 	public static PointNodeDatabase fromJson(Object json) {
