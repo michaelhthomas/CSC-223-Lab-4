@@ -1,0 +1,52 @@
+//           /\
+//          /  \
+//         /    \
+// _______/______\_______
+// \.     |      |     ./
+//   \.   |      |   ./
+//     \. |_ /\ _| ./
+//       \  /  \  /
+//        |/    \|
+//
+// I tried to draw a star.  This is the best I could do.
+// Yes, I know it's terrible.  I don't have the necessary angles with ASCII characters.
+// I'm sorry.
+{
+  "Figure": {
+    "Description": "Crossing symmetric triangle construction.",
+    "Points": [
+      {
+        "name": "D",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "name": "E",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "name": "B",
+        "x": 2,
+        "y": 4
+      },
+      {
+        "name": "C",
+        "x": 4,
+        "y": 4
+      },
+      {
+        "name": "A",
+        "x": 3,
+        "y": 6
+      }
+    ],
+
+    "Segments": [
+      { "A": ["B", "C"] },
+      { "B": ["C", "D", "E"] },
+      { "C": ["D", "E"] },
+      { "D": ["E"] }
+    ]
+  }
+}
