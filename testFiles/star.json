@@ -13,40 +13,41 @@
 // I'm sorry.
 {
   "Figure": {
-    "Description": "Crossing symmetric triangle construction.",
+    "Description": "5-pointed star construction.",
     "Points": [
       {
-        "name": "D",
+        "name": "A",
         "x": 0,
-        "y": 0
-      },
-      {
-        "name": "E",
-        "x": 6,
-        "y": 0
+        "y": 13
       },
       {
         "name": "B",
-        "x": 2,
-        "y": 4
+        "x": 20,
+        "y": 13
       },
       {
         "name": "C",
-        "x": 4,
-        "y": 4
+        "x": 3,
+        "y": 0
       },
       {
-        "name": "A",
-        "x": 3,
-        "y": 6
+        "name": "D",
+        "x": 10,
+        "y": 20
+      },
+      {
+        "name": "E",
+        "x": 17,
+        "y": 0
       }
     ],
 
     "Segments": [
-      { "A": ["B", "C"] },
-      { "B": ["C", "D", "E"] },
-      { "C": ["D", "E"] },
-      { "D": ["E"] }
+      { "A": ["E", "B"] },
+      { "B": ["A", "C"] },
+      { "C": ["B", "D"] },
+      { "D": ["C", "E"] },
+      { "E": ["D", "A"] }
     ]
   }
 }
