@@ -1,16 +1,15 @@
-//           /\
-//          /  \
-//         /    \
-// _______/______\_______
-// \.     |      |     ./
-//   \.   |      |   ./
-//     \. |_ /\ _| ./
-//       \  /  \  /
-//        |/    \|
+//             D
+//             /\
+//            /  \
+// A_________/    \_________B
+//   *.     /      \      .*
+//      *. /        \  .*
+//        /*.      .*\
+//       /    *..*    \
+//      /   .*    *.   \
+//     / .*          *. \
+//     C                 E
 //
-// I tried to draw a star.  This is the best I could do.
-// Yes, I know it's terrible.  I don't have the necessary angles with ASCII characters.
-// I'm sorry.
 {
   "Figure": {
     "Description": "5-pointed star construction.",
