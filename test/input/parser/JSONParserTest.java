@@ -21,8 +21,9 @@ import input.exception.ParseException;
  * 
  * @author Michael Thomas
  * @author Michael Leiby
- * @author Julia Hogg
- * @date 2/14/2023
+ * @Author Julia Hogg
+ * 
+ * @date 2/21/2023
  */
 
 class JSONParserTest {
