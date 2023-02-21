@@ -17,10 +17,11 @@ import input.components.point.PointNode;
 import input.exception.ParseException;
 
 /**
- * TODO: WRITE THE DESCRIPTION
+ * Simple test cases for JSONParser
  * 
+ * @author Michael Thomas
  * @author Michael Leiby
- * 
+ * @author Julia Hogg
  * @date 2/14/2023
  */
 
@@ -114,8 +115,7 @@ class JSONParserTest {
 	}
 
 	@Test
-	void perfectOctagonTest()
-	{
+	void perfectOctagonTest() {
 		ComponentNode node = JSONParserTest.runFigureParseTest("testFiles/perfect_octagon.json");
 		assertTrue(node instanceof FigureNode);
 		FigureNode figNode = (FigureNode) node;

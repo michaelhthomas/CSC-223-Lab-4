@@ -2,12 +2,12 @@ package input.parser;
 
 import org.json.JSONObject;
 
-
 /**
- * TODO: WRITE THE DESCRIPTION
+ * Parses FigureNodes from their representations in JSON files.
  * 
+ * @author Michael Thomas
  * @author Michael Leiby
- * 
+ * @author Julia Hogg
  * @date 2/14/2023
  */
 
