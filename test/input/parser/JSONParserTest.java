@@ -93,4 +93,24 @@ class JSONParserTest {
 			assertTrue(figNode.getPointsDatabase().contains(p));
 		assertEquals(3, figNode.getSegments().asUniqueSegmentList().size());
 	}
+	
+	@Test
+	void fivePointStarTest() {
+		ComponentNode node = JSONParserTest.runFigureParseTest("testFiles/star.json");
+
+		assertTrue(node instanceof FigureNode);
+		FigureNode figNode = (FigureNode) node;
+
+		List<PointNode> starPoints = List.of(
+				new PointNode(0, 13),
+				new PointNode(20, 13),
+				new PointNode(3, 0),
+				new PointNode(10, 20),
+				new PointNode(17, 0));
+
+		assertEquals("5-pointed star construction.", figNode.getDescription());
+		for (PointNode p : starPoints)
+			assertTrue(figNode.getPointsDatabase().contains(p));
+		assertEquals(5, figNode.getSegments().asUniqueSegmentList().size());
+	}
 }
