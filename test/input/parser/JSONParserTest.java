@@ -20,8 +20,10 @@ import input.exception.ParseException;
  * TODO: WRITE THE DESCRIPTION
  * 
  * @author Michael Leiby
+ * @author Michael Thomas
+ * @Author Julia Hogg
  * 
- * @date 2/14/2023
+ * @date 2/21/2023
  */
 
 class JSONParserTest {
