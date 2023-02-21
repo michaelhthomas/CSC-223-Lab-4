@@ -148,9 +148,27 @@ public class DrawShape {
 
       // shape lines
       for (SegmentNode segment : _segments.asUniqueSegmentList()) {
+        g2d.setColor(java.awt.Color.BLACK);
         g2d.drawLine(
             scaleX((int) (segment.getPoint1().getX() + 0.5)),
             scaleY((int) (segment.getPoint1().getY() + 0.5)),
+            scaleX((int) (segment.getPoint2().getX() + 0.5)),
+            scaleY((int) (segment.getPoint2().getY() + 0.5)));
+        g2d.setColor(java.awt.Color.RED);
+        g2d.drawOval(
+            scaleX((int) (segment.getPoint1().getX() + 0.5)),
+            scaleY((int) (segment.getPoint1().getY() + 0.5)),
+            1, 1);
+        g2d.drawOval(
+            scaleX((int) (segment.getPoint2().getX() + 0.5)),
+            scaleY((int) (segment.getPoint2().getY() + 0.5)),
+            2, 2);
+        g2d.drawString(
+            segment.getPoint1().getName(),
+            scaleX((int) (segment.getPoint1().getX() + 0.5)),
+            scaleY((int) (segment.getPoint1().getY() + 0.5)));
+        g2d.drawString(
+            segment.getPoint2().getName(),
             scaleX((int) (segment.getPoint2().getX() + 0.5)),
             scaleY((int) (segment.getPoint2().getY() + 0.5)));
       }
