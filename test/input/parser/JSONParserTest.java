@@ -93,11 +93,10 @@ class JSONParserTest {
 			assertTrue(figNode.getPointsDatabase().contains(p));
 		assertEquals(3, figNode.getSegments().asUniqueSegmentList().size());
 	}
-	
+
 	@Test
 	void fivePointStarTest() {
 		ComponentNode node = JSONParserTest.runFigureParseTest("testFiles/star.json");
-
 		assertTrue(node instanceof FigureNode);
 		FigureNode figNode = (FigureNode) node;
 
@@ -112,5 +111,28 @@ class JSONParserTest {
 		for (PointNode p : starPoints)
 			assertTrue(figNode.getPointsDatabase().contains(p));
 		assertEquals(5, figNode.getSegments().asUniqueSegmentList().size());
+	}
+
+	@Test
+	void perfectOctagonTest()
+	{
+		ComponentNode node = JSONParserTest.runFigureParseTest("testFiles/perfect_octagon.json");
+		assertTrue(node instanceof FigureNode);
+		FigureNode figNode = (FigureNode) node;
+
+		List<PointNode> octagonPoints = List.of(
+				new PointNode(2, 1),
+				new PointNode(0, 3),
+				new PointNode(0, 7),
+				new PointNode(2, 9),
+				new PointNode(6, 9),
+				new PointNode(8, 7),
+				new PointNode(8, 3),
+				new PointNode(6, 1));
+
+		assertEquals("Perfect Octagon in the first quadrant.", figNode.getDescription());
+		for (PointNode p : octagonPoints)
+			assertTrue(figNode.getPointsDatabase().contains(p));
+		assertEquals(13, figNode.getSegments().asUniqueSegmentList().size());
 	}
 }
