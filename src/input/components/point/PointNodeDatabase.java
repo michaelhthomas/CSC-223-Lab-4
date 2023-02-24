@@ -150,6 +150,7 @@ public class PointNodeDatabase implements ComponentNode {
 		JSONArray JSONpoints = (JSONArray) json;
 		PointNodeDatabase points = new PointNodeDatabase();
 
+		// parse each point in the list
 		for (Object pointObj : JSONpoints) {
 			JSONObject JSONpoint = (JSONObject) pointObj;
 			PointNode point = new PointNode(

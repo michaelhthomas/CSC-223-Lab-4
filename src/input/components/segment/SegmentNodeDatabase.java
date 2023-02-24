@@ -153,17 +153,21 @@ public class SegmentNodeDatabase implements ComponentNode {
 		SegmentNodeDatabase segments = new SegmentNodeDatabase();
 
 		for (Object segmentObj : JSONsegments) {
+			// get one segment from the list
 			JSONObject JSONsegment = (JSONObject) segmentObj;
 			String rootPointName = JSONsegment.names().getString(0);
+			// get the root point from the database
 			PointNode rootPoint = points.getPoint(rootPointName);
+
+			// convert json array to list of points from point database
 			JSONArray adjacentPointNames = JSONsegment.getJSONArray(rootPointName);
 			List<PointNode> adjacentPoints = new ArrayList<>();
-
 			for (Object pointNameObj : adjacentPointNames) {
 				String pointName = (String) pointNameObj;
 				adjacentPoints.add(points.getPoint(pointName));
 			}
 
+			// add adjacency list to segment node database
 			segments.addAdjacencyList(rootPoint, adjacentPoints);
 		}
 
@@ -176,7 +180,7 @@ public class SegmentNodeDatabase implements ComponentNode {
 		for (Map.Entry<PointNode, Set<PointNode>> entry : _adjLists.entrySet()) {
 			sb.append(StringUtilities.indent(level + 1) + entry.getKey().getName());
 			sb.append(" :");
-			for(PointNode value : entry.getValue()) {
+			for (PointNode value : entry.getValue()) {
 				sb.append(" " + value.getName());
 			}
 			sb.append("\n");

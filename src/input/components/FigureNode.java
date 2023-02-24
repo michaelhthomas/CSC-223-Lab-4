@@ -53,10 +53,15 @@ public class FigureNode implements ComponentNode {
 
 	public static FigureNode fromJson(Object json) {
 		JSONObject JSONfigure = (JSONObject) json;
+		// get description
 		String description = JSONfigure.getString("Description");
+		// get points
 		JSONArray JSONpoints = JSONfigure.getJSONArray("Points");
+		// get segments
 		JSONArray JSONsegments = JSONfigure.getJSONArray("Segments");
+		// parse points
 		PointNodeDatabase points = PointNodeDatabase.fromJson(JSONpoints);
+		// parse segments
 		SegmentNodeDatabase segments = SegmentNodeDatabase.fromJson(JSONsegments, points);
 
 		return new FigureNode(description, points, segments);
